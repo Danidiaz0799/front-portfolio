@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a routerLink="/" (click)="closeMenu()">
+          <span class="logo-text">Mi Portafolio</span>
+        </a>
+      </div>
+      
+      <nav class="navigation" [class.active]="isMenuOpen">
+        <ul class="nav-list">
+          @for (link of navLinks; track link.path) {
+            <li class="nav-item">
+              <a 
+                class="nav-link" 
+                [routerLink]="link.path" 
+                [routerLinkActiveOptions]="{exact: link.exact}"
+                routerLinkActive="active"
+                (click)="closeMenu()"
+              >
+                {{link.label}}
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <a routerLink="/contact" class="contact-btn">Contactar</a>
+        <button class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

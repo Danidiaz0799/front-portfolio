@@ -1,0 +1,70 @@
+<section class="projects-header">
+  <div class="container">
+    <div class="section-header">
+      <h1>Mis Proyectos</h1>
+      <p>Explora mi trabajo y los proyectos en los que he contribuido</p>
+    </div>
+  </div>
+</section>
+
+<section class="projects-filter">
+  <div class="container">
+    <div class="filter-container">
+      <div class="filter-categories">
+        @for (category of categories; track category) {
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedCategory === category"
+            (click)="setCategory(category)">
+            {{category}}
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects-grid">
+  <div class="container">
+    <div class="projects-container">
+      @for (project of filteredProjects; track project.id) {
+        <div class="project-card">
+          <div class="project-image">
+            <!-- Usamos un placeholder hasta que tengamos imágenes reales -->
+            <div class="project-image-placeholder" [attr.data-project]="project.id"></div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">{{project.title}}</h3>
+            <div class="project-category">{{project.category}}</div>
+            <p class="project-description">{{project.description}}</p>
+            
+            <div class="project-technologies">
+              @for (tech of project.technologies; track tech) {
+                <span class="tech-tag">{{tech}}</span>
+              }
+            </div>
+            
+            <div class="project-links">
+              <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
+                Ver Demo
+              </a>
+              <a [href]="project.sourceUrl" target="_blank" rel="noopener noreferrer" class="project-link source-link">
+                Ver Código
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <h2>¿Tienes un proyecto en mente?</h2>
+      <p>Estoy disponible para nuevas oportunidades y colaboraciones</p>
+      <a routerLink="/contact" class="primary-btn">Contáctame</a>
+    </div>
+  </div>
+</section>

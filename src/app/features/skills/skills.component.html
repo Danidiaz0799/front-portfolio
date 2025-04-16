@@ -1,0 +1,103 @@
+<section class="skills-header">
+  <div class="container">
+    <div class="section-header">
+      <h1>Mis Habilidades</h1>
+      <p>Conocimientos técnicos y competencias profesionales</p>
+    </div>
+  </div>
+</section>
+
+<section class="skills-overview">
+  <div class="container">
+    <div class="overview-content">
+      <div class="overview-text">
+        <h2>Competencias técnicas</h2>
+        <p>
+          A lo largo de mi carrera he desarrollado un conjunto diverso de habilidades técnicas
+          que me permiten abordar proyectos de manera integral. Estas son las tecnologías
+          y herramientas con las que trabajo habitualmente.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-categories">
+  <div class="container">
+    <div class="skills-grid">
+      @for (category of skillCategories; track category.name) {
+        <div class="skill-category">
+          <div class="category-header">
+            <h3>{{category.name}}</h3>
+            <div class="category-icon">
+              <div class="icon-placeholder" [attr.data-icon]="category.icon"></div>
+            </div>
+          </div>
+          
+          <div class="skills-list">
+            @for (skill of category.skills; track skill.name) {
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">{{skill.name}}</span>
+                  <span class="skill-percentage">{{skill.level}}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" [style.width]="getSkillLevelWidth(skill.level)"></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="skills-additional">
+  <div class="container">
+    <div class="section-title">
+      <h2>Otras habilidades</h2>
+    </div>
+    
+    <div class="additional-content">
+      <div class="additional-column">
+        <h3>Metodologías</h3>
+        <ul class="bullet-list">
+          <li>Scrum</li>
+          <li>Kanban</li>
+          <li>TDD</li>
+          <li>Agile</li>
+          <li>Clean Code</li>
+        </ul>
+      </div>
+      
+      <div class="additional-column">
+        <h3>Idiomas</h3>
+        <ul class="bullet-list">
+          <li>Español (Nativo)</li>
+          <li>Inglés (Profesional)</li>
+        </ul>
+      </div>
+      
+      <div class="additional-column">
+        <h3>Soft Skills</h3>
+        <ul class="bullet-list">
+          <li>Trabajo en equipo</li>
+          <li>Comunicación</li>
+          <li>Resolución de problemas</li>
+          <li>Gestión del tiempo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <h2>¿Interesado en mi perfil profesional?</h2>
+      <p>Estoy disponible para nuevas oportunidades y colaboraciones</p>
+      <a routerLink="/contact" class="primary-btn">Contáctame</a>
+    </div>
+  </div>
+</section>

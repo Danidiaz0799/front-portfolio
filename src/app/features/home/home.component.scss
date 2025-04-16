@@ -1,0 +1,410 @@
+// Variables
+$primary-color: #4a6cf7;
+$secondary-color: #121212;
+$text-color: #333;
+$light-color: #fff;
+$light-gray: #f8f9fa;
+$dark-gray: #6c757d;
+$transition: all 0.3s ease;
+$box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+
+// Global section styles
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: $secondary-color;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: $dark-gray;
+    }
+  }
+  
+  .section-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+}
+
+// Button styles
+.primary-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: $primary-color;
+  color: $light-color;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: $transition;
+  box-shadow: 0 4px 12px rgba($primary-color, 0.25);
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba($primary-color, 0.3);
+  }
+}
+
+.secondary-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: transparent;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: $transition;
+  
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+    transform: translateY(-3px);
+  }
+}
+
+.text-link {
+  display: inline-block;
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: $transition;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $primary-color;
+    transition: $transition;
+  }
+  
+  &:hover {
+    color: darken($primary-color, 10%);
+    
+    &:after {
+      width: 100%;
+    }
+  }
+}
+
+// Hero Section
+.hero-section {
+  padding: 120px 0 80px;
+  background: linear-gradient(to right, rgba($light-color, 0.9), rgba($light-color, 0.7)), 
+              url('/assets/bg-pattern.png') repeat;
+  position: relative;
+  
+  .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    
+    .hero-text {
+      flex: 1;
+      
+      h1 {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+        color: $secondary-color;
+        
+        .highlight {
+          color: $primary-color;
+          position: relative;
+          
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: rgba($primary-color, 0.2);
+            z-index: -1;
+          }
+        }
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: $dark-gray;
+      }
+      
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+        color: $text-color;
+      }
+      
+      .hero-cta {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+      
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        
+        .tech-tag {
+          display: inline-block;
+          padding: 6px 14px;
+          background-color: rgba($primary-color, 0.1);
+          color: $primary-color;
+          border-radius: 20px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+    
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      .profile-image-container {
+        position: relative;
+        width: 320px;
+        height: 320px;
+        
+        .profile-image-placeholder {
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+          background-color: #eaebff;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 10px 30px rgba($primary-color, 0.2);
+          
+          &:after {
+            content: 'Profile Image';
+            color: rgba($primary-color, 0.6);
+            font-size: 1.2rem;
+            font-weight: 500;
+          }
+          
+          &:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba($primary-color, 0.3);
+          }
+        }
+        
+        &:before {
+          content: '';
+          position: absolute;
+          top: 40px;
+          left: -15px;
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+          background-color: rgba($primary-color, 0.1);
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
+// About Preview Section
+.about-preview {
+  background-color: $light-gray;
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    
+    .about-text {
+      p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+// Projects Preview Section
+.projects-preview {
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+    
+    .project-card {
+      background-color: $light-color;
+      border-radius: $border-radius;
+      overflow: hidden;
+      box-shadow: $box-shadow;
+      transition: $transition;
+      
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+      
+      .project-image {
+        height: 200px;
+        background-color: #f0f0f0;
+        
+        .project-image-placeholder {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $dark-gray;
+          font-weight: 500;
+          
+          &:after {
+            content: 'Project Image';
+          }
+        }
+      }
+      
+      .project-info {
+        padding: 25px;
+        
+        h3 {
+          font-size: 1.4rem;
+          margin-bottom: 10px;
+          color: $secondary-color;
+        }
+        
+        p {
+          font-size: 1rem;
+          margin-bottom: 15px;
+          color: $text-color;
+        }
+        
+        .project-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: 15px;
+          
+          span {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: rgba($primary-color, 0.1);
+            color: $primary-color;
+            border-radius: 4px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Contact Preview Section
+.contact-preview {
+  background-color: $light-gray;
+  
+  .contact-card {
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    padding: 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba($primary-color, 0.3);
+    
+    .contact-text {
+      color: $light-color;
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+    }
+    
+    .primary-btn {
+      background-color: $light-color;
+      color: $primary-color;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      
+      &:hover {
+        background-color: darken($light-color, 5%);
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media screen and (max-width: 992px) {
+  .hero-section {
+    .hero-content {
+      flex-direction: column;
+      
+      .hero-text {
+        text-align: center;
+        
+        .hero-cta, .tech-tags {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  .hero-section {
+    padding: 100px 0 60px;
+    
+    .hero-content {
+      .hero-text {
+        h1 {
+          font-size: 2.8rem;
+        }
+      }
+    }
+  }
+  
+  .contact-preview {
+    .contact-card {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+    }
+  }
+}

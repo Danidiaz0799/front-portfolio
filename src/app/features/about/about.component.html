@@ -1,0 +1,92 @@
+<section class="about-header">
+  <div class="container">
+    <div class="section-header">
+      <h1>Sobre mí</h1>
+      <p>Conoce más sobre mi experiencia y trayectoria profesional</p>
+    </div>
+  </div>
+</section>
+
+<section class="biography-section">
+  <div class="container">
+    <div class="bio-content">
+      <div class="bio-image">
+        <!-- Placeholder para foto profesional -->
+        <div class="profile-image-placeholder"></div>
+      </div>
+      <div class="bio-text">
+        <h2>{{biography.name}}</h2>
+        <h3>{{biography.title}}</h3>
+        <p>{{biography.summary}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Experiencia profesional</h2>
+    </div>
+    
+    <div class="timeline">
+      @for (exp of experiences; track exp.company) {
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>{{exp.position}}</h3>
+            <h4>{{exp.company}}</h4>
+            <div class="timeline-date">{{exp.period}}</div>
+            <p>{{exp.description}}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="education-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Educación</h2>
+    </div>
+    
+    <div class="timeline">
+      @for (edu of education; track edu.degree) {
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>{{edu.degree}}</h3>
+            <h4>{{edu.institution}}</h4>
+            <div class="timeline-date">{{edu.period}}</div>
+            <p>{{edu.description}}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Habilidades personales</h2>
+    </div>
+    
+    <div class="personal-skills">
+      @for (skill of personalSkills; track skill) {
+        <div class="skill-pill">{{skill}}</div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <h2>¿Interesado en trabajar juntos?</h2>
+      <p>Estoy abierto a nuevas oportunidades y colaboraciones</p>
+      <a routerLink="/contact" class="primary-btn">Contáctame</a>
+    </div>
+  </div>
+</section>

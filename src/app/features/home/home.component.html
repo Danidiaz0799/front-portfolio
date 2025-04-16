@@ -1,0 +1,102 @@
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
+        <h2>{{professionalTitle}}</h2>
+        <p>{{introText}}</p>
+        <div class="hero-cta">
+          <a routerLink="/contact" class="primary-btn">Contact Me</a>
+          <a routerLink="/projects" class="secondary-btn">View My Work</a>
+        </div>
+        <div class="tech-tags">
+          @for (skill of techSkills; track skill) {
+            <span class="tech-tag">{{skill}}</span>
+          }
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Placeholder for profile image -->
+        <div class="profile-image-container">
+          <div class="profile-image-placeholder"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-preview">
+  <div class="container">
+    <div class="section-header">
+      <h2>About Me</h2>
+      <p>Let me introduce myself</p>
+    </div>
+    <div class="about-content">
+      <div class="about-text">
+        <p>I'm a passionate Full Stack Developer with expertise in Angular and .NET technologies. I focus on creating scalable, maintainable, and user-friendly applications that solve real-world problems.</p>
+        <a routerLink="/about" class="text-link">Learn more about me →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects-preview">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+      <p>Some of my best work</p>
+    </div>
+    <div class="project-cards">
+      <!-- Project Card 1 -->
+      <div class="project-card">
+        <div class="project-image">
+          <!-- Project image placeholder -->
+          <div class="project-image-placeholder"></div>
+        </div>
+        <div class="project-info">
+          <h3>Project Title 1</h3>
+          <p>Brief description of the project showcasing key features and technologies used.</p>
+          <div class="project-tags">
+            <span>Angular</span>
+            <span>.NET</span>
+            <span>SQL</span>
+          </div>
+          <a routerLink="/projects" class="text-link">View details →</a>
+        </div>
+      </div>
+      
+      <!-- Project Card 2 -->
+      <div class="project-card">
+        <div class="project-image">
+          <!-- Project image placeholder -->
+          <div class="project-image-placeholder"></div>
+        </div>
+        <div class="project-info">
+          <h3>Project Title 2</h3>
+          <p>Brief description of the project showcasing key features and technologies used.</p>
+          <div class="project-tags">
+            <span>Angular</span>
+            <span>TypeScript</span>
+            <span>API</span>
+          </div>
+          <a routerLink="/projects" class="text-link">View details →</a>
+        </div>
+      </div>
+    </div>
+    <div class="section-footer">
+      <a routerLink="/projects" class="primary-btn">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact-preview">
+  <div class="container">
+    <div class="contact-card">
+      <div class="contact-text">
+        <h2>Interested in working together?</h2>
+        <p>Feel free to reach out for collaborations or just a friendly hello</p>
+      </div>
+      <a routerLink="/contact" class="primary-btn">Contact Me</a>
+    </div>
+  </div>
+</section>

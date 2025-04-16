@@ -1,0 +1,314 @@
+// Variables
+$primary-color: #4a6cf7;
+$secondary-color: #121212;
+$text-color: #333;
+$light-color: #fff;
+$light-gray: #f8f9fa;
+$dark-gray: #6c757d;
+$transition: all 0.3s ease;
+$box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+
+// Estilos globales
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 60px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: $secondary-color;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: $dark-gray;
+  }
+}
+
+.section-title {
+  margin-bottom: 30px;
+  
+  h2 {
+    font-size: 2.2rem;
+    color: $secondary-color;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40%;
+      height: 3px;
+      background-color: $primary-color;
+    }
+  }
+}
+
+// Header de habilidades
+.skills-header {
+  background-color: $light-gray;
+}
+
+// Sección de resumen
+.skills-overview {
+  .overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    
+    .overview-text {
+      h2 {
+        font-size: 2.2rem;
+        color: $secondary-color;
+        margin-bottom: 20px;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// Grid de categorías de habilidades
+.skills-categories {
+  background-color: $light-gray;
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 30px;
+  }
+  
+  .skill-category {
+    background-color: $light-color;
+    border-radius: $border-radius;
+    padding: 25px;
+    box-shadow: $box-shadow;
+    transition: $transition;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      
+      h3 {
+        font-size: 1.5rem;
+        color: $secondary-color;
+      }
+      
+      .category-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba($primary-color, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .icon-placeholder {
+          font-size: 1.2rem;
+          color: $primary-color;
+          
+          // Placeholder para los iconos
+          &[data-icon="code"]:after {
+            content: "</>";
+          }
+          
+          &[data-icon="server"]:after {
+            content: "{ }";
+          }
+          
+          &[data-icon="database"]:after {
+            content: "DB";
+          }
+          
+          &[data-icon="tools"]:after {
+            content: "⚙️";
+          }
+        }
+      }
+    }
+    
+    .skills-list {
+      .skill-item {
+        margin-bottom: 20px;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        .skill-info {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 5px;
+          
+          .skill-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: $text-color;
+          }
+          
+          .skill-percentage {
+            font-size: 0.9rem;
+            color: $dark-gray;
+          }
+        }
+        
+        .skill-bar {
+          height: 10px;
+          background-color: rgba($dark-gray, 0.1);
+          border-radius: 5px;
+          overflow: hidden;
+          
+          .skill-progress {
+            height: 100%;
+            background: linear-gradient(to right, $primary-color, lighten($primary-color, 15%));
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Sección de habilidades adicionales
+.skills-additional {
+  .additional-content {
+    display: flex;
+    gap: 30px;
+    
+    .additional-column {
+      flex: 1;
+      background-color: $light-color;
+      border-radius: $border-radius;
+      padding: 25px;
+      box-shadow: $box-shadow;
+      
+      h3 {
+        font-size: 1.3rem;
+        color: $primary-color;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba($primary-color, 0.2);
+      }
+      
+      .bullet-list {
+        list-style: none;
+        padding: 0;
+        
+        li {
+          position: relative;
+          padding-left: 25px;
+          margin-bottom: 10px;
+          font-size: 1rem;
+          color: $text-color;
+          
+          &:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: $primary-color;
+            font-weight: bold;
+            font-size: 1.5rem;
+          }
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// CTA Section (igual que en componentes anteriores)
+.cta-section {
+  .cta-box {
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    padding: 50px;
+    text-align: center;
+    color: $light-color;
+    box-shadow: 0 10px 30px rgba($primary-color, 0.3);
+    
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+    
+    .primary-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: $light-color;
+      color: $primary-color;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: $transition;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      
+      &:hover {
+        background-color: darken($light-color, 5%);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+// Responsive
+@media screen and (max-width: 992px) {
+  .skills-categories {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills-additional {
+    .additional-content {
+      flex-direction: column;
+    }
+  }
+  
+  .cta-section {
+    .cta-box {
+      padding: 30px;
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

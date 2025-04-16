@@ -1,0 +1,287 @@
+// Variables
+$primary-color: #4a6cf7;
+$secondary-color: #121212;
+$text-color: #333;
+$light-color: #fff;
+$light-gray: #f8f9fa;
+$dark-gray: #6c757d;
+$transition: all 0.3s ease;
+$box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+
+// Estilos globales
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 60px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: $secondary-color;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: $dark-gray;
+  }
+}
+
+// Header de proyectos
+.projects-header {
+  background-color: $light-gray;
+}
+
+// Filtros de proyectos
+.projects-filter {
+  padding-bottom: 30px;
+  
+  .filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+    .filter-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      
+      .filter-btn {
+        padding: 8px 20px;
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        border-radius: 30px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: $transition;
+        
+        &:hover, &.active {
+          background-color: $primary-color;
+          color: $light-color;
+        }
+        
+        &.active {
+          box-shadow: 0 4px 10px rgba($primary-color, 0.25);
+        }
+      }
+    }
+  }
+}
+
+// Grid de proyectos
+.projects-grid {
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+  }
+  
+  .project-card {
+    background-color: $light-color;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+    transition: $transition;
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      
+      .project-image-placeholder {
+        transform: scale(1.05);
+      }
+    }
+    
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+      
+      .project-image-placeholder {
+        width: 100%;
+        height: 100%;
+        background-color: #eaebff;
+        transition: $transition;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.1rem;
+        color: rgba($primary-color, 0.7);
+        
+        &:after {
+          content: 'Imagen del Proyecto';
+        }
+        
+        // Diferentes colores para cada proyecto
+        &[data-project="1"] {
+          background-color: #e3f2fd;
+        }
+        
+        &[data-project="2"] {
+          background-color: #e8f5e9;
+        }
+        
+        &[data-project="3"] {
+          background-color: #fff3e0;
+        }
+        
+        &[data-project="4"] {
+          background-color: #f3e5f5;
+        }
+        
+        &[data-project="5"] {
+          background-color: #e0f7fa;
+        }
+        
+        &[data-project="6"] {
+          background-color: #ede7f6;
+        }
+      }
+    }
+    
+    .project-content {
+      padding: 25px;
+      
+      .project-title {
+        font-size: 1.5rem;
+        color: $secondary-color;
+        margin-bottom: 5px;
+      }
+      
+      .project-category {
+        display: inline-block;
+        padding: 3px 10px;
+        background-color: rgba($primary-color, 0.1);
+        color: $primary-color;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+      }
+      
+      .project-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: $text-color;
+        margin-bottom: 20px;
+      }
+      
+      .project-technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+        
+        .tech-tag {
+          display: inline-block;
+          padding: 4px 10px;
+          background-color: rgba($dark-gray, 0.1);
+          color: $dark-gray;
+          border-radius: 4px;
+          font-size: 0.8rem;
+        }
+      }
+      
+      .project-links {
+        display: flex;
+        gap: 15px;
+        
+        .project-link {
+          padding: 8px 16px;
+          text-decoration: none;
+          border-radius: 4px;
+          font-size: 0.9rem;
+          font-weight: 500;
+          transition: $transition;
+          
+          &.demo-link {
+            background-color: $primary-color;
+            color: $light-color;
+            
+            &:hover {
+              background-color: darken($primary-color, 10%);
+            }
+          }
+          
+          &.source-link {
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            
+            &:hover {
+              background-color: rgba($primary-color, 0.1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// CTA Section (igual que en el componente About)
+.cta-section {
+  .cta-box {
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    padding: 50px;
+    text-align: center;
+    color: $light-color;
+    box-shadow: 0 10px 30px rgba($primary-color, 0.3);
+    
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+    
+    .primary-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: $light-color;
+      color: $primary-color;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: $transition;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      
+      &:hover {
+        background-color: darken($light-color, 5%);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .projects-grid {
+    .projects-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .cta-section {
+    .cta-box {
+      padding: 30px;
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

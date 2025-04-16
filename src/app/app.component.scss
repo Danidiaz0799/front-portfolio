@@ -1,0 +1,24 @@
+// Variables
+$header-height: 70px;
+
+// Estilos globales para la aplicación
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: $header-height; // Para compensar el header fijo
+}
+
+// Estilos generales que se aplicarán a toda la aplicación
+:host {
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
