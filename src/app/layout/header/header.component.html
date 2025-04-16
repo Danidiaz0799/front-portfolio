@@ -1,38 +1,73 @@
-<header class="header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <a routerLink="/" (click)="closeMenu()">
+<header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex-shrink-0">
+        <a routerLink="/" (click)="closeMenu()" class="text-xl font-bold text-primary hover:text-primary-dark transition-colors">
           <span class="logo-text">Mi Portafolio</span>
         </a>
       </div>
       
-      <nav class="navigation" [class.active]="isMenuOpen">
-        <ul class="nav-list">
-          @for (link of navLinks; track link.path) {
-            <li class="nav-item">
-              <a 
-                class="nav-link" 
-                [routerLink]="link.path" 
-                [routerLinkActiveOptions]="{exact: link.exact}"
-                routerLinkActive="active"
-                (click)="closeMenu()"
-              >
-                {{link.label}}
-              </a>
-            </li>
-          }
-        </ul>
+      <nav class="hidden md:flex items-center space-x-8">
+        @for (link of navLinks; track link.path) {
+          <a 
+            class="text-text hover:text-primary transition-colors font-medium"
+            [routerLink]="link.path" 
+            [routerLinkActiveOptions]="{exact: link.exact}"
+            routerLinkActive="text-primary"
+            (click)="closeMenu()"
+          >
+            {{link.label}}
+          </a>
+        }
       </nav>
       
-      <div class="header-actions">
-        <a routerLink="/contact" class="contact-btn">Contactar</a>
-        <button class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+      <div class="flex items-center space-x-4">
+        <a routerLink="/contact" class="hidden md:inline-flex items-center px-4 py-2 rounded-full bg-primary text-white hover:bg-primary-dark transition-colors">
+          Contactar
+        </a>
+        <button 
+          class="md:hidden p-2 rounded-lg hover:bg-background-alt transition-colors"
+          [class.active]="isMenuOpen" 
+          (click)="toggleMenu()" 
+          aria-label="Toggle menu"
+        >
+          <div class="w-6 h-6 flex flex-col justify-center items-center">
+            <span class="block w-6 h-0.5 bg-text mb-1.5"></span>
+            <span class="block w-6 h-0.5 bg-text mb-1.5"></span>
+            <span class="block w-6 h-0.5 bg-text"></span>
+          </div>
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div 
+    class="md:hidden fixed inset-0 bg-background/95 backdrop-blur-lg z-40 transition-transform duration-300"
+    [class.translate-x-0]="isMenuOpen"
+    [class.translate-x-full]="!isMenuOpen"
+  >
+    <div class="container mx-auto px-4 py-8">
+      <nav class="flex flex-col space-y-6">
+        @for (link of navLinks; track link.path) {
+          <a 
+            class="text-xl text-text hover:text-primary transition-colors font-medium"
+            [routerLink]="link.path" 
+            [routerLinkActiveOptions]="{exact: link.exact}"
+            routerLinkActive="text-primary"
+            (click)="closeMenu()"
+          >
+            {{link.label}}
+          </a>
+        }
+        <a 
+          routerLink="/contact" 
+          class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white hover:bg-primary-dark transition-colors text-lg font-medium"
+          (click)="closeMenu()"
+        >
+          Contactar
+        </a>
+      </nav>
     </div>
   </div>
 </header>

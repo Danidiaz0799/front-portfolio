@@ -10,8 +10,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  templateUrl: './contact.component.html'
 })
 export class ContactComponent implements OnInit {
   /**

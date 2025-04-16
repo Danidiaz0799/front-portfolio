@@ -1,64 +1,47 @@
-<footer class="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <a routerLink="/">
-              <span class="logo-text">Mi Portafolio</span>
+<footer class="bg-[#0F172A] text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Contact info -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold">Contact</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Danidiaz0799&#64;gmail.com" class="text-gray-400 hover:text-white transition-colors">
+              Danidiaz0799&#64;gmail.com
             </a>
-          </div>
-          <p class="footer-description">
-            Desarrollador Full Stack con más de 5 años de experiencia en el diseño, desarrollo e implementación 
-            de aplicaciones web escalables y de alto rendimiento. Especializado en Angular y .NET, con un enfoque 
-            en arquitectura limpia y buenas prácticas de desarrollo.
-          </p>
-          <div class="footer-social">
-            @for (social of socialLinks; track social.url) {
-              <a [href]="social.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="social.label">
-                <div class="social-icon" [attr.data-icon]="social.icon"></div>
-              </a>
-            }
-          </div>
-        </div>
-        
-        <div class="footer-links">
-          <h3 class="footer-title">Enlaces rápidos</h3>
-          <ul class="link-list">
-            @for (link of footerLinks; track link.path) {
-              <li>
-                <a [routerLink]="link.path">{{link.label}}</a>
-              </li>
-            }
-          </ul>
-        </div>
-        
-        <div class="footer-contact">
-          <h3 class="footer-title">Contacto</h3>
-          <ul class="contact-list">
-            <li>
-              <span class="contact-icon" data-icon="email"></span>
-              <a href="mailto:Danidiaz0799&#64;gmail.com">Danidiaz0799&#64;gmail.com</a>
-            </li>
-            <li>
-              <span class="contact-icon" data-icon="phone"></span>
-              <a href="tel:+573215460960">(+57) 3215460960</a>
-            </li>
-            <li>
-              <span class="contact-icon" data-icon="location"></span>
-              <span>Bogotá, Colombia</span>
-            </li>
-          </ul>
+          </li>
+          <li>
+            <a href="tel:+573215460960" class="text-gray-400 hover:text-white transition-colors">
+              (+57) 3215460960
+            </a>
+          </li>
+          <li class="text-gray-400">
+            Bogotá, Colombia
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tech stack -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold">Tech Stack</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">.NET</span>
+          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">Angular</span>
+          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">SQL</span>
+          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">Python</span>
+          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">C#</span>
+          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">TypeScript</span>
+          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">Entity Framework</span>
+          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">RESTful APIs</span>
         </div>
       </div>
     </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="copyright">
-        <p>&copy; {{currentYear}} Mi Portafolio. Todos los derechos reservados</p>
-      </div>
+
+    <!-- Copyright -->
+    <div class="mt-12 pt-8 border-t border-gray-800 text-center">
+      <p class="text-gray-400 text-sm">
+        © {{currentYear}} Steven Diaz. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>

@@ -1,70 +1,81 @@
-<section class="projects-header">
-  <div class="container">
-    <div class="section-header">
-      <h1>Mis Proyectos</h1>
+<section class="section bg-background-alt relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="container relative z-10">
+    <div class="section-title">
+      <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Portfolio</span>
+      <h2>Mis Proyectos</h2>
       <p>Explora mi trabajo y los proyectos en los que he contribuido</p>
     </div>
-  </div>
-</section>
-
-<section class="projects-filter">
-  <div class="container">
-    <div class="filter-container">
-      <div class="filter-categories">
-        @for (category of categories; track category) {
-          <button 
-            class="filter-btn" 
-            [class.active]="selectedCategory === category"
-            (click)="setCategory(category)">
-            {{category}}
-          </button>
-        }
-      </div>
+    
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      @for (category of categories; track category) {
+        <div class="px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors duration-300"
+          [ngClass]="{
+            'bg-primary text-white': selectedCategory === category,
+            'bg-background text-text hover:bg-primary/10': selectedCategory !== category
+          }"
+          (click)="setCategory(category)">
+          {{category}}
+        </div>
+      }
     </div>
-  </div>
-</section>
-
-<section class="projects-grid">
-  <div class="container">
-    <div class="projects-container">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
       @for (project of filteredProjects; track project.id) {
-        <div class="project-card">
-          <div class="project-image">
-            <!-- Usamos un placeholder hasta que tengamos imágenes reales -->
-            <div class="project-image-placeholder" [attr.data-project]="project.id"></div>
+        <div class="card group overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="h-48 bg-gradient-primary relative overflow-hidden">
+            <div class="absolute inset-0 bg-background-dark opacity-70"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-dark/70 to-transparent">
+              <h3 class="text-2xl font-bold text-white">{{project.title}}</h3>
+            </div>
           </div>
-          <div class="project-content">
-            <h3 class="project-title">{{project.title}}</h3>
-            <div class="project-category">{{project.category}}</div>
-            <div class="project-description" [innerHTML]="formatDescription(project.description)"></div>
+          <div class="p-6 space-y-4">
+            <div class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+              {{project.category}}
+            </div>
+            <div class="text-text-light" [innerHTML]="formatDescription(project.description)"></div>
             
-            <div class="project-technologies">
+            <div class="flex flex-wrap gap-2">
               @for (tech of project.technologies; track tech) {
-                <span class="tech-tag">{{tech}}</span>
+                <span class="badge badge-primary">{{tech}}</span>
               }
             </div>
             
-            <div class="project-links">
-              <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="btn btn-secondary inline-flex items-center">
                 Ver Demo
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
               </a>
-              <a [href]="project.sourceUrl" target="_blank" rel="noopener noreferrer" class="project-link source-link">
+              <a [href]="project.sourceUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline inline-flex items-center">
                 Ver Código
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
               </a>
             </div>
           </div>
         </div>
       }
     </div>
-  </div>
-</section>
-
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-box">
-      <h2>¿Tienes un proyecto en mente?</h2>
-      <p>Estoy disponible para nuevas oportunidades y colaboraciones</p>
-      <a routerLink="/contact" class="primary-btn">Contáctame</a>
+    
+    <div class="mt-16 text-center">
+      <div class="card max-w-3xl mx-auto p-8 md:p-12 glass-effect">
+        <h2 class="text-2xl font-bold text-text mb-4">¿Tienes un proyecto en mente?</h2>
+        <p class="text-text-light text-lg mb-6">Estoy disponible para nuevas oportunidades y colaboraciones</p>
+        <a routerLink="/contact" class="btn btn-primary">Contáctame</a>
+      </div>
     </div>
   </div>
 </section>

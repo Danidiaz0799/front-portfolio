@@ -8,17 +8,17 @@ import { RouterLink } from '@angular/router';
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
-  // Proyectos destacados
+  // Featured projects
   featuredProjects = [
     {
       title: 'SpeedyTools Cloud',
-      description: 'Migración y optimización de una plataforma empresarial consolidando tres soluciones en Angular + .NET. Desarrollo de una arquitectura modular con componentes reutilizables.',
+      description: 'Migration and optimization of an enterprise platform consolidating three solutions in Angular + .NET. Development of a modular architecture with reusable components.',
       tags: ['Angular', '.NET Core', 'Azure'],
       imagePlaceholder: true
     },
     {
       title: 'NABIS',
-      description: 'Desarrollo y mantenimiento de soluciones empresariales en Angular y .NET Core. Implementación de CI/CD en Azure DevOps para automatización de despliegues.',
+      description: 'Development and maintenance of enterprise solutions in Angular and .NET Core. Implementation of CI/CD in Azure DevOps for deployment automation.',
       tags: ['Angular', '.NET Core', 'Azure DevOps'],
       imagePlaceholder: true
     }

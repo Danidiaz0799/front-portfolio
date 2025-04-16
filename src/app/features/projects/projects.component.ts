@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 /**
  * Projects component
@@ -9,9 +10,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [RouterLink],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  imports: [RouterLink, CommonModule],
+  templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
   /**

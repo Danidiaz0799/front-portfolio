@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
@@ -12,6 +13,7 @@ import { ContactComponent } from './components/contact/contact.component';
   selector: 'app-home',
   standalone: true,
   imports: [
+    RouterLink,
     HeroComponent,
     AboutComponent,
     ProjectsComponent,
@@ -28,7 +30,7 @@ export class HomeComponent {
   /**
    * Brief introduction for the hero section
    */
-  introText = 'Desarrollador Full Stack con más de 5 años de experiencia en el diseño, desarrollo e implementación de aplicaciones web escalables y de alto rendimiento.';
+  introText = 'Full Stack Developer with over 5 years of experience in designing, developing, and implementing scalable and high-performance web applications.';
   
   /**
    * List of primary tech skills to showcase

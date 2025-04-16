@@ -9,8 +9,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-about',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  templateUrl: './about.component.html'
 })
 export class AboutComponent {
   /**
