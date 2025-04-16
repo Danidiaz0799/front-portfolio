@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { HeroComponent } from './components/hero/hero.component';
+import { AboutComponent } from './components/about/about.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 /**
  * Home component for the portfolio landing page
@@ -8,9 +11,13 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  imports: [
+    HeroComponent,
+    AboutComponent,
+    ProjectsComponent,
+    ContactComponent
+  ],
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {
   /**

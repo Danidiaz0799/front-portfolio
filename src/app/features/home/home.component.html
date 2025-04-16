@@ -1,107 +1,15 @@
-<section class="hero-section">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Hi, I'm <span class="highlight">Daniel Díaz</span></h1>
-        <h2>{{professionalTitle}}</h2>
-        <p>{{introText}}</p>
-        <div class="hero-cta">
-          <a routerLink="/contact" class="primary-btn">Contact Me</a>
-          <a routerLink="/projects" class="secondary-btn">View My Work</a>
-        </div>
-        <div class="tech-tags">
-          @for (skill of techSkills; track skill) {
-            <span class="tech-tag">{{skill}}</span>
-          }
-        </div>
-      </div>
-      <div class="hero-image">
-        <!-- Placeholder for profile image -->
-        <div class="profile-image-container">
-          <div class="profile-image-placeholder"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Hero Section -->
+<app-hero 
+  [professionalTitle]="professionalTitle"
+  [introText]="introText"
+  [techSkills]="techSkills">
+</app-hero>
 
-<section class="about-preview">
-  <div class="container">
-    <div class="section-header">
-      <h2>About Me</h2>
-      <p>Let me introduce myself</p>
-    </div>
-    <div class="about-content">
-      <div class="about-text">
-        <p>Desarrollador Full Stack con más de 5 años de experiencia en el diseño, desarrollo e implementación de aplicaciones web escalables y de alto rendimiento. Especializado en Angular y .NET, con un enfoque en arquitectura limpia, buenas prácticas de desarrollo y metodologías ágiles.</p>
-        <div class="contact-info">
-          <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
-          <p><strong>Email:</strong> Danidiaz0799&#64;gmail.com</p>
-          <p><strong>Teléfono:</strong> (+57) 3215460960</p>
-        </div>
-        <a routerLink="/about" class="text-link">Conoce más sobre mí →</a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- About Section -->
+<app-about></app-about>
 
-<section class="projects-preview">
-  <div class="container">
-    <div class="section-header">
-      <h2>Featured Projects</h2>
-      <p>Some of my best work</p>
-    </div>
-    <div class="project-cards">
-      <!-- Project Card 1 -->
-      <div class="project-card">
-        <div class="project-image">
-          <!-- Project image placeholder -->
-          <div class="project-image-placeholder"></div>
-        </div>
-        <div class="project-info">
-          <h3>SpeedyTools Cloud</h3>
-          <p>Migración y optimización de una plataforma empresarial consolidando tres soluciones en Angular + .NET. Desarrollo de una arquitectura modular con componentes reutilizables.</p>
-          <div class="project-tags">
-            <span>Angular</span>
-            <span>.NET Core</span>
-            <span>Azure</span>
-          </div>
-          <a routerLink="/projects" class="text-link">Ver detalles →</a>
-        </div>
-      </div>
-      
-      <!-- Project Card 2 -->
-      <div class="project-card">
-        <div class="project-image">
-          <!-- Project image placeholder -->
-          <div class="project-image-placeholder"></div>
-        </div>
-        <div class="project-info">
-          <h3>NABIS</h3>
-          <p>Desarrollo y mantenimiento de soluciones empresariales en Angular y .NET Core. Implementación de CI/CD en Azure DevOps para automatización de despliegues.</p>
-          <div class="project-tags">
-            <span>Angular</span>
-            <span>.NET Core</span>
-            <span>Azure DevOps</span>
-          </div>
-          <a routerLink="/projects" class="text-link">Ver detalles →</a>
-        </div>
-      </div>
-    </div>
-    <div class="section-footer">
-      <a routerLink="/projects" class="primary-btn">Ver todos los proyectos</a>
-    </div>
-  </div>
-</section>
+<!-- Projects Section -->
+<app-projects></app-projects>
 
-<section class="contact-preview">
-  <div class="container">
-    <div class="contact-card">
-      <div class="contact-text">
-        <h2>¿Interesado en trabajar juntos?</h2>
-        <p>No dudes en contactarme para colaboraciones o simplemente para saludar</p>
-      </div>
-      <a routerLink="/contact" class="primary-btn">Contáctame</a>
-    </div>
-  </div>
-</section>
+<!-- Contact Section -->
+<app-contact></app-contact>
