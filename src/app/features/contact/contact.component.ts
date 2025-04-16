@@ -33,9 +33,9 @@ export class ContactComponent implements OnInit {
    * Contact information
    */
   contactInfo = {
-    email: 'ejemplo&#64;midominio.com',
-    phone: '+34 123 456 789',
-    location: 'Madrid, España'
+    email: 'Danidiaz0799&#64;gmail.com',
+    phone: '(+57) 3215460960',
+    location: 'Bogotá, Colombia'
   };
 
   constructor(private fb: FormBuilder) {}

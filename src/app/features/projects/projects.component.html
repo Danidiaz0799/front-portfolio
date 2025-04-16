@@ -36,7 +36,7 @@
           <div class="project-content">
             <h3 class="project-title">{{project.title}}</h3>
             <div class="project-category">{{project.category}}</div>
-            <p class="project-description">{{project.description}}</p>
+            <div class="project-description" [innerHTML]="formatDescription(project.description)"></div>
             
             <div class="project-technologies">
               @for (tech of project.technologies; track tech) {
