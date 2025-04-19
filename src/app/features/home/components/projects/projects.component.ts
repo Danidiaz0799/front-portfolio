@@ -12,15 +12,15 @@ export class ProjectsComponent {
   featuredProjects = [
     {
       title: 'SpeedyTools Cloud',
-      description: 'Migration and optimization of an enterprise platform consolidating three solutions in Angular + .NET. Development of a modular architecture with reusable components.',
+      description: 'Migración y optimización de plataforma empresarial consolidando tres soluciones en Angular + .NET. Desarrollo de arquitectura modular con componentes reutilizables.',
       tags: ['Angular', '.NET Core', 'Azure'],
-      imagePlaceholder: true
+      imageUrl: 'assets/images/projects/project1.jpg'
     },
     {
       title: 'NABIS',
-      description: 'Development and maintenance of enterprise solutions in Angular and .NET Core. Implementation of CI/CD in Azure DevOps for deployment automation.',
+      description: 'Desarrollo y mantenimiento de soluciones empresariales en Angular y .NET Core. Implementación de CI/CD en Azure DevOps para automatización de despliegues.',
       tags: ['Angular', '.NET Core', 'Azure DevOps'],
-      imagePlaceholder: true
+      imageUrl: 'assets/images/projects/project2.jpg'
     }
   ];
 } 

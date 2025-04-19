@@ -30,6 +30,7 @@
     "@angular-devkit/build-angular": "^17.3.16",
     "@angular/cli": "^17.3.16",
     "@angular/compiler-cli": "^17.3.0",
+    "@tailwindcss/postcss": "^4.1.4",
     "@types/jasmine": "~5.1.0",
     "autoprefixer": "^10.4.21",
     "jasmine-core": "~5.1.0",

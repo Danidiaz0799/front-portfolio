@@ -1,50 +1,83 @@
-<section class="section bg-background-alt relative overflow-hidden">
+<section class="py-16 md:py-20 lg:py-24 bg-background-alt relative overflow-hidden">
   <!-- Background decorative elements -->
-  <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-full blur-3xl"></div>
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-1/4 right-0 w-1/3 h-2/3 bg-primary/5 rounded-full blur-3xl opacity-30"></div>
+    <div class="absolute -bottom-1/4 left-0 w-1/2 h-1/2 bg-secondary/5 rounded-full blur-3xl opacity-30"></div>
   </div>
   
-  <div class="container relative z-10">
-    <div class="section-title">
-      <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">About Me</span>
-      <h2>Get to Know Me</h2>
-      <p>Let me introduce myself</p>
+  <div class="container relative z-10 mx-auto px-4 xl:max-w-7xl">
+    <div class="section-title mb-12 md:mb-16 text-center">
+      <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">Sobre Mí</span>
+      <h2 class="mt-4">Conóceme Mejor</h2>
+      <p class="mt-3 text-lg text-text-light">Permíteme presentarme</p>
     </div>
     
-    <div class="card max-w-4xl mx-auto p-8 md:p-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="space-y-6">
-          <p class="text-text-light leading-relaxed text-lg">
-            Full Stack Developer with over 5 years of experience in designing, developing, and implementing scalable and high-performance web applications. Specialized in Angular and .NET, with a focus on clean architecture, development best practices, and agile methodologies (Scrum, Kanban).
-          </p>
-          
-          <a routerLink="/about" class="btn btn-secondary inline-flex items-center">
-            Learn More About Me
-            <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-start">
+      <!-- Text Column -->
+      <div class="space-y-6 animate-fade-in" style="animation-delay: 0.2s;">
+        <h3 class="text-2xl md:text-3xl font-semibold text-text">Creando Soluciones Digitales</h3>
+        <p class="text-text-light/90 leading-relaxed text-base md:text-lg">
+          Como Desarrollador Full Stack con más de 5 años de trayectoria, me dedico a diseñar, desarrollar e implementar aplicaciones web escalables y de alto rendimiento. Mi especialidad se centra en <strong class="text-primary font-semibold">Angular</strong> y <strong class="text-primary font-semibold">.NET</strong>, con un fuerte enfoque en arquitectura limpia, buenas prácticas de desarrollo y metodologías ágiles (Scrum, Kanban) para resolver desafíos empresariales complejos de manera efectiva.
+        </p>
+        <p class="text-text-light/90 leading-relaxed text-base md:text-lg">
+          Me apasiona resolver problemas y aprender continuamente nuevas tecnologías para entregar soluciones robustas y centradas en el usuario. ¡Construyamos algo increíble juntos!
+        </p>
         
-        <div class="space-y-6">
-          <h3 class="text-xl font-semibold text-text mb-4">Contact Information</h3>
-          
-          @for (item of contactInfo; track item.label) {
-            <div class="flex items-start gap-4 p-4 bg-background/50 rounded-xl hover:bg-background/80 transition-colors duration-300 border border-border hover:border-primary-light">
-              <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+        <a routerLink="/about" class="inline-flex items-center justify-center px-6 py-3 font-medium text-primary border border-primary/50 rounded-md hover:bg-primary/10 hover:text-primary-dark transition-colors duration-300">
+          Leer Más Sobre Mí
+          <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Contact Info Column -->
+      <div class="space-y-5 p-6 lg:p-8 bg-background/60 backdrop-blur-sm rounded-xl border border-border/40 shadow-inner-soft animate-fade-in" style="animation-delay: 0.4s;">
+        <h3 class="text-xl font-semibold text-text mb-6">Información de Contacto</h3>
+        
+        @for (item of contactInfo; track item.label) {
+          <ng-container *ngIf="isClickable(item); else nonLinkItem">
+            <a [href]="getContactHref(item)"
+               class="flex items-center gap-4 p-4 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:shadow-sm group cursor-pointer">
+              <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 group-hover:scale-105 transition-all duration-300">
                 <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.icon"/>
                 </svg>
               </div>
-              <div>
-                <p class="text-sm text-text-light">{{item.label}}</p>
-                <p class="text-text font-medium">{{item.value}}</p>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm text-text-light/80 truncate">{{item.label}}</p>
+                <p class="text-text font-medium truncate">{{item.value}}</p>
+              </div>
+            </a>
+          </ng-container>
+          <ng-template #nonLinkItem>
+            <div class="flex items-center gap-4 p-4 rounded-lg transition-all duration-300 group cursor-default">
+              <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 group-hover:scale-105 transition-all duration-300">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.icon"/>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm text-text-light/80 truncate">{{item.label}}</p>
+                <p class="text-text font-medium truncate">{{item.value}}</p>
               </div>
             </div>
-          }
-        </div>
+          </ng-template>
+        }
       </div>
     </div>
   </div>
+  <style>
+    .shadow-inner-soft {
+      box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+      opacity: 0; /* Start hidden */
+    }
+  </style>
 </section> 
