@@ -364,7 +364,7 @@ a {
   padding: var(--spacing-xl) 0;
   position: relative;
   
-  &-title {
+  .section-title {
     text-align: center;
     margin-bottom: var(--spacing-xl);
     
@@ -373,18 +373,6 @@ a {
       margin-bottom: var(--spacing-sm);
       position: relative;
       display: inline-block;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 50px;
-        height: 3px;
-        background: var(--gradient-primary);
-        border-radius: var(--radius-full);
-      }
     }
     
     p {

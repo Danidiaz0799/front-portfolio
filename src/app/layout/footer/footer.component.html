@@ -1,47 +1,24 @@
-<footer class="bg-[#0F172A] text-white py-12">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Contact info -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-semibold">Contact</h3>
-        <ul class="space-y-2">
-          <li>
-            <a href="mailto:Danidiaz0799&#64;gmail.com" class="text-gray-400 hover:text-white transition-colors">
-              Danidiaz0799&#64;gmail.com
-            </a>
-          </li>
-          <li>
-            <a href="tel:+573215460960" class="text-gray-400 hover:text-white transition-colors">
-              (+57) 3215460960
-            </a>
-          </li>
-          <li class="text-gray-400">
-            Bogotá, Colombia
-          </li>
-        </ul>
-      </div>
-
-      <!-- Tech stack -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-semibold">Tech Stack</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">.NET</span>
-          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">Angular</span>
-          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">SQL</span>
-          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">Python</span>
-          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">C#</span>
-          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">TypeScript</span>
-          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">Entity Framework</span>
-          <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm">RESTful APIs</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="mt-12 pt-8 border-t border-gray-800 text-center">
-      <p class="text-gray-400 text-sm">
-        © {{currentYear}} Steven Diaz. All rights reserved.
+<footer class="bg-background-dark text-text-lighter py-8 border-t border-border-dark/50">
+  <div class="container mx-auto px-4 xl:max-w-7xl">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Copyright -->
+      <p class="text-sm text-center md:text-left">
+        © {{currentYear}} Steven Diaz. Todos los derechos reservados.
       </p>
+      
+      <!-- Social Links -->
+      <div class="flex items-center gap-4">
+        @for (social of socialLinks; track social.label) {
+          <a [href]="social.url" target="_blank" rel="noopener noreferrer" 
+             [attr.aria-label]="social.label" 
+             class="text-text-lighter hover:text-primary-light transition-colors duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <title>{{ social.label }}</title> 
+              <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="social.icon"></path>
+            </svg>
+          </a>
+        }
+      </div>
     </div>
   </div>
 </footer>
