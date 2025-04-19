@@ -1,173 +1,104 @@
-<section class="section bg-background-alt relative overflow-hidden">
-  <!-- Background decorative elements -->
-  <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-full blur-3xl"></div>
+<!-- Hero Section -->
+<section class="relative py-16 md:py-20 overflow-hidden bg-background">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-0 right-0 w-1/3 h-2/3 bg-primary/5 rounded-full blur-3xl opacity-40"></div>
+    <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-secondary/5 rounded-full blur-3xl opacity-40"></div>
   </div>
-  
-  <div class="container relative z-10">
-    <div class="section-title">
-      <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Skills</span>
-      <h2>Mis Habilidades</h2>
-      <p>Conocimientos técnicos y competencias profesionales</p>
+  <div class="container relative z-10 mx-auto px-4 xl:max-w-7xl">
+    <div class="max-w-3xl mx-auto text-center space-y-4 animate-fade-in">
+      <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">Habilidades</span>
+      <h1 class="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-text">Competencias Técnicas</h1>
+      <p class="text-lg text-text-light leading-relaxed">Un resumen de las tecnologías y herramientas que domino para crear soluciones de software eficientes y robustas.</p>
     </div>
-    
-    <div class="card max-w-4xl mx-auto p-8 md:p-12 mb-16">
-      <div class="space-y-6">
-        <h3 class="text-2xl font-semibold text-text">Competencias técnicas</h3>
-        <p class="text-text-light leading-relaxed text-lg">
-          A lo largo de mi carrera he desarrollado un conjunto diverso de habilidades técnicas
-          que me permiten abordar proyectos de manera integral. Estas son las tecnologías
-          y herramientas con las que trabajo habitualmente.
-        </p>
-      </div>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-      @for (category of skillCategories; track category.name) {
-        <div class="card p-6 hover:shadow-lg transition-shadow duration-300">
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="text-xl font-semibold text-text">{{category.name}}</h3>
-            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-              </svg>
-            </div>
-          </div>
-          
-          <div class="space-y-4">
-            @for (skill of category.skills; track skill.name) {
-              <div class="space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="text-text font-medium">{{skill.name}}</span>
-                  <span class="text-text-light text-sm">{{skill.level}}%</span>
-                </div>
-                <div class="h-2 bg-background-alt rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-primary rounded-full" [style.width]="getSkillLevelWidth(skill.level)"></div>
-                </div>
-              </div>
+  </div>
+</section>
+
+<!-- Skills Grid Section -->
+<section class="py-16 md:py-20 bg-background-alt">
+  <div class="container mx-auto px-4 xl:max-w-7xl">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      @for (category of skillCategories; track category.name; let i = $index) {
+        <div class="p-6 bg-background rounded-lg border border-border/50 shadow-sm hover:shadow-lg hover:border-primary/40 transition-all duration-300 animate-fade-in" [style.animation-delay]="(i * 0.1) + 's'">
+          <h3 class="text-xl font-semibold text-text mb-5 flex items-center gap-3">
+            <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="category.icon"></path>
+            </svg>
+            {{category.name}}
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            @for(skill of category.skills; track skill.name) {
+              <span class="px-3 py-1 bg-primary/10 text-primary/90 rounded-full text-sm font-medium border border-primary/20">{{skill.name}}</span>
             }
           </div>
         </div>
       }
     </div>
-    
-    <div class="mt-16">
-      <div class="section-title">
-        <h2>Otras habilidades</h2>
+  </div>
+</section>
+
+<!-- Other Skills Section (Languages & Soft Skills) -->
+<section class="py-16 md:py-20 bg-background">
+  <div class="container mx-auto px-4 xl:max-w-7xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      <!-- Languages -->
+      <div class="animate-fade-in" style="animation-delay: '0.2s';">
+        <div class="section-title mb-8 text-left md:text-center">
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Idiomas</h2>
+        </div>
+        <ul class="space-y-3">
+          @for(lang of languages; track lang.name) {
+            <li class="flex items-center p-4 bg-background-alt rounded-lg border border-border/50">
+              <svg class="w-5 h-5 mr-3 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 6.061 14.287 6 15 6c1.12 0 2.233.038 3.334.114M12 12.75V15m0 6V12.75m-3.379 3.121a5.95 5.95 0 01-1.5-1.121m1.5 1.121a5.953 5.953 0 001.5-1.121M15.379 15.879a5.953 5.953 0 01-1.5 1.121m1.5-1.121a5.95 5.95 0 00-1.5 1.121" /></svg>
+              <span class="text-text font-medium">{{lang.name}}:</span>
+              <span class="ml-2 text-text-light">{{lang.level}}</span>
+            </li>
+          }
+        </ul>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="card p-6">
-          <h3 class="text-xl font-semibold text-text mb-4">Metodologías y Arquitectura</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Scrum
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Kanban
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Clean Architecture
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              SOLID
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Agile
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Clean Code
-            </li>
-          </ul>
+      <!-- Soft Skills -->
+      <div class="animate-fade-in" style="animation-delay: '0.4s';">
+        <div class="section-title mb-8 text-left md:text-center">
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Habilidades Blandas</h2>
         </div>
-        
-        <div class="card p-6">
-          <h3 class="text-xl font-semibold text-text mb-4">Idiomas</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Español (Nativo)
+        <ul class="space-y-3">
+          @for(skill of softSkills; track skill) {
+            <li class="flex items-center p-4 bg-background-alt rounded-lg border border-border/50">
+               <svg class="w-5 h-5 mr-3 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span class="text-text font-medium">{{skill}}</span>
             </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Inglés (Profesional)
-            </li>
-          </ul>
-        </div>
-        
-        <div class="card p-6">
-          <h3 class="text-xl font-semibold text-text mb-4">Soft Skills</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Trabajo en equipo
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Liderazgo técnico
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Comunicación efectiva
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Resolución de problemas
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Gestión del tiempo
-            </li>
-            <li class="flex items-center text-text-light">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Adaptabilidad
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="mt-16 text-center">
-      <div class="card max-w-3xl mx-auto p-8 md:p-12 glass-effect">
-        <h2 class="text-2xl font-bold text-text mb-4">¿Interesado en mi perfil profesional?</h2>
-        <p class="text-text-light text-lg mb-6">Estoy disponible para nuevas oportunidades y colaboraciones</p>
-        <a routerLink="/contact" class="btn btn-primary">Contáctame</a>
+          }
+        </ul>
       </div>
     </div>
   </div>
 </section>
+
+<!-- CTA Section -->
+<section class="py-16 md:py-20 bg-background-alt">
+  <div class="container mx-auto px-4 xl:max-w-7xl">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="p-8 md:p-12 bg-background rounded-xl border border-border/50 shadow-lg animate-fade-in" style="animation-delay: '0.5s';">
+        <h2 class="text-3xl font-bold text-text mb-4">¿Listo para el Siguiente Nivel?</h2>
+        <p class="text-text-light mb-6 max-w-md mx-auto">Combinemos mis habilidades con tu visión para crear proyectos excepcionales.</p>
+        <a routerLink="/contact" class="inline-flex items-center justify-center px-7 py-3 font-medium text-white bg-primary rounded-md shadow-lg shadow-primary/30 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-0.5">
+          Contactar Ahora
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Add animation style if not global -->
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0; /* Start hidden */
+  }
+</style>

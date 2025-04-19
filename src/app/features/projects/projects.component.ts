@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule],
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
@@ -26,9 +25,9 @@ export class ProjectsComponent {
     {
       id: 1,
       title: 'SpeedyTools Cloud (Amaris Consulting - Telefónica)',
-      description: '🔹 Migración y optimización de una plataforma empresarial consolidando tres soluciones en Angular + .NET.\n🔹 Desarrollo de una arquitectura modular con componentes reutilizables.\n🔹 Implementación de mejoras en UX/UI y optimización del rendimiento.\n🔹 Creación de servicios REST API con .NET para garantizar seguridad y escalabilidad.',
-      image: 'assets/images/project-placeholder-1.jpg',
-      technologies: ['Angular', '.NET Core', 'Azure', 'REST API', 'SQL Server'],
+      description: '🔹 Migración y optimización de plataforma empresarial en Angular y .NET.\n🔹 Desarrollo de arquitectura modular, mejoras UX/UI y creación de REST API seguras y escalables.',
+      image: 'assets/images/projects/project1.jpg',
+      technologies: ['Angular', '.NET', 'Azure', 'REST API', 'SQL Server'],
       category: 'Full Stack',
       demoUrl: '#',
       sourceUrl: '#'
@@ -36,8 +35,8 @@ export class ProjectsComponent {
     {
       id: 2,
       title: 'NABIS (Amaris Consulting - Telefónica)',
-      description: '🔹 Desarrollo y mantenimiento de soluciones empresariales en Angular y .NET Core.\n🔹 Implementación de CI/CD en Azure DevOps para automatización de despliegues.\n🔹 Aplicación de principios SOLID y Clean Architecture.\n🔹 Creación de componentes reutilizables para mejorar la mantenibilidad del código.',
-      image: 'assets/images/project-placeholder-2.jpg',
+      description: '🔹 Desarrollo y mantenimiento de soluciones empresariales con Angular y .NET Core.\n🔹 Implementación de CI/CD en Azure DevOps, aplicando SOLID y Clean Architecture.',
+      image: 'assets/images/projects/project2.jpg',
       technologies: ['Angular', '.NET Core', 'Azure DevOps', 'CI/CD', 'Clean Architecture'],
       category: 'Full Stack',
       demoUrl: '#',
@@ -47,7 +46,7 @@ export class ProjectsComponent {
       id: 3,
       title: 'BookingSystem (Inchcape Digital)',
       description: '🔹 Desarrollo de servicios backend en .NET Core y C#.\n🔹 Implementación de arquitecturas escalables y microservicios.\n🔹 Integración de APIs de terceros y optimización de consultas SQL.',
-      image: 'assets/images/project-placeholder-3.jpg',
+      image: 'assets/images/projects/project1.jpg',
       technologies: ['.NET Core', 'C#', 'SQL Server', 'Microservicios', 'APIs'],
       category: 'Backend',
       demoUrl: '#',
@@ -55,10 +54,10 @@ export class ProjectsComponent {
     },
     {
       id: 4,
-      title: 'Sistema de Monitoreo IoT para Cultivo de Setas',
-      description: '🔹 Desarrollo de una plataforma de monitoreo en tiempo real con Angular, .NET y Azure.\n🔹 Integración con sensores de temperatura y humedad mediante ESP32 y Raspberry Pi.\n🔹 Uso de MQTT y Python para la comunicación entre dispositivos IoT.',
-      image: 'assets/images/project-placeholder-4.jpg',
-      technologies: ['Angular', '.NET Core', 'Python', 'Azure', 'IoT', 'MQTT', 'Raspberry Pi'],
+      title: 'Sistema Monitoreo IoT (Cultivo Setas)',
+      description: '🔹 Plataforma de monitoreo en tiempo real con Angular, .NET y Azure.\n🔹 Integración con sensores IoT (ESP32, Raspberry Pi).\n🔹 Comunicación MQTT con Python.',
+      image: 'assets/images/projects/project2.jpg',
+      technologies: ['Angular', '.NET', 'Python', 'Azure', 'IoT', 'MQTT'],
       category: 'Full Stack',
       demoUrl: '#',
       sourceUrl: '#'
@@ -66,19 +65,19 @@ export class ProjectsComponent {
     {
       id: 5,
       title: 'Portfolio Personal',
-      description: 'Sitio web de portafolio personal desarrollado con Angular y Tailwind CSS. Presenta un diseño moderno, responsive y accesible que muestra mis proyectos y habilidades profesionales.',
-      image: 'assets/images/project-placeholder-5.jpg',
+      description: 'Mi sitio web de portafolio personal desarrollado con Angular 17, TypeScript y Tailwind CSS. Presenta un diseño moderno, responsive y funcional.',
+      image: 'assets/images/projects/project1.jpg',
       technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'SCSS'],
       category: 'Frontend',
-      demoUrl: '#',
-      sourceUrl: 'https://github.com/username/portfolio'
+      demoUrl: '/',
+      sourceUrl: 'https://github.com/Danidiaz0799/front-portfolio'
     }
   ];
 
   /**
    * Categories for filtering projects
    */
-  categories = ['All', 'Frontend', 'Backend', 'Full Stack'];
+  categories = ['All', 'Full Stack', 'Backend', 'Frontend'];
 
   /**
    * Currently selected category for filtering
