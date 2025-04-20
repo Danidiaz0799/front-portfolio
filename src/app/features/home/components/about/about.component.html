@@ -1,0 +1,54 @@
+<section class="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-1/4 right-0 w-1/3 h-2/3 bg-primary/5 rounded-full blur-3xl opacity-30"></div>
+    <div class="absolute -bottom-1/4 left-0 w-1/2 h-1/2 bg-secondary/5 rounded-full blur-3xl opacity-30"></div>
+  </div>
+  
+  <div class="container relative z-10 mx-auto px-4 xl:max-w-7xl">
+    <div class="section-title mb-12 md:mb-16 text-center">
+      <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">Sobre Mí</span>
+      <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Conóceme Mejor</h2>
+      <p class="mt-4 text-lg text-text-light max-w-xl mx-auto">Permíteme presentarme</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-start">
+      <!-- Text Column -->
+      <div class="space-y-6 animate-fade-in" style="animation-delay: 0.2s;">
+        <h3 class="text-2xl md:text-3xl font-semibold text-text">Creando Soluciones Digitales</h3>
+        <p class="text-text-light/90 leading-relaxed text-base md:text-lg">
+          Como Desarrollador Full Stack con más de 5 años de trayectoria, me especializo en el diseño, desarrollo e implementación de aplicaciones web escalables y de alto rendimiento, principalmente con <strong class="text-primary font-semibold">Angular</strong> y <strong class="text-primary font-semibold">.NET</strong>. Mi enfoque se centra en arquitectura limpia, buenas prácticas (SOLID) y metodologías ágiles (Scrum, Kanban) para resolver desafíos empresariales complejos.
+        </p>
+        <p class="text-text-light/90 leading-relaxed text-base md:text-lg">
+          Me apasiona la optimización de código y el desarrollo eficiente. Busco continuamente aprender y aplicar <strong class="text-primary font-semibold">TypeScript, Python y SQL</strong> para entregar soluciones digitales innovadoras y centradas en el usuario. ¡Construyamos algo increíble juntos!
+        </p>
+        
+        <a routerLink="/about" class="inline-flex items-center justify-center px-6 py-3 font-medium text-primary border border-primary/50 rounded-md hover:bg-primary/10 hover:text-primary-dark transition-colors duration-300">
+          Leer Más Sobre Mí
+          <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Contact Info Column -->
+      <div class="space-y-5 p-6 lg:p-8 bg-background/60 backdrop-blur-sm rounded-xl border border-border/40 shadow-inner-soft">
+        <h3 class="text-xl font-semibold text-text mb-6">Información de Contacto</h3>
+        
+        @for (item of contactInfo; track item.label) {
+          <div class="flex items-center gap-4 p-3 rounded-lg group">
+            <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 group-hover:scale-105 transition-all duration-300">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.icon"/>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm text-text-light/80 truncate">{{item.label}}</p>
+              <p class="text-text font-medium truncate">{{item.value}}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section> 

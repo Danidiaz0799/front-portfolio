@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 /**
  * Projects component
@@ -8,86 +9,90 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [RouterLink],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  imports: [CommonModule],
+  templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
+  /**
+   * Constructor
+   */
+  constructor(private sanitizer: DomSanitizer) {}
+
   /**
    * Array of projects to display
    */
   projects = [
     {
       id: 1,
-      title: 'E-commerce Application',
-      description: 'Aplicación de comercio electrónico completa desarrollada con Angular y .NET Core. Incluye autenticación de usuarios, catálogo de productos, carrito de compras y pasarela de pagos.',
-      image: 'assets/images/project-placeholder-1.jpg',
-      technologies: ['Angular', '.NET Core', 'SQL Server', 'Entity Framework', 'Bootstrap'],
+      title: 'SpeedyTools Cloud (Amaris Consulting - Telefónica)',
+      description: '🔹 Migración y optimización de plataforma empresarial en Angular y .NET.\n🔹 Desarrollo de arquitectura modular, mejoras UX/UI y creación de REST API seguras y escalables.',
+      image: 'assets/images/projects/project1.jpg',
+      technologies: ['Angular', '.NET', 'Azure', 'REST API', 'SQL Server'],
       category: 'Full Stack',
-      demoUrl: 'https://demo.example.com',
-      sourceUrl: 'https://github.com/username/repo'
+      demoUrl: '#',
+      sourceUrl: '#'
     },
     {
       id: 2,
-      title: 'Dashboard Analytics',
-      description: 'Panel de control para visualización de datos y análisis estadísticos. Presenta gráficos interactivos, informes personalizables y alertas en tiempo real.',
-      image: 'assets/images/project-placeholder-2.jpg',
-      technologies: ['Angular', 'TypeScript', 'Chart.js', 'RxJS', 'Material Design'],
-      category: 'Frontend',
-      demoUrl: 'https://demo.example.com',
-      sourceUrl: 'https://github.com/username/repo'
+      title: 'NABIS (Amaris Consulting - Telefónica)',
+      description: '🔹 Desarrollo y mantenimiento de soluciones empresariales con Angular y .NET Core.\n🔹 Implementación de CI/CD en Azure DevOps, aplicando SOLID y Clean Architecture.',
+      image: 'assets/images/projects/project2.jpg',
+      technologies: ['Angular', '.NET Core', 'Azure DevOps', 'CI/CD', 'Clean Architecture'],
+      category: 'Full Stack',
+      demoUrl: '#',
+      sourceUrl: '#'
     },
     {
       id: 3,
-      title: 'Task Management System',
-      description: 'Sistema de gestión de tareas y proyectos con funcionalidades de seguimiento de tiempo, asignación de responsabilidades y colaboración en equipo.',
-      image: 'assets/images/project-placeholder-3.jpg',
-      technologies: ['Angular', '.NET Core', 'SQL Server', 'SignalR', 'Azure'],
-      category: 'Full Stack',
-      demoUrl: 'https://demo.example.com',
-      sourceUrl: 'https://github.com/username/repo'
+      title: 'BookingSystem (Inchcape Digital)',
+      description: '🔹 Desarrollo de servicios backend en .NET Core y C#.\n🔹 Implementación de arquitecturas escalables y microservicios.\n🔹 Integración de APIs de terceros y optimización de consultas SQL.',
+      image: 'assets/images/projects/project1.jpg',
+      technologies: ['.NET Core', 'C#', 'SQL Server', 'Microservicios', 'APIs'],
+      category: 'Backend',
+      demoUrl: '#',
+      sourceUrl: '#'
     },
     {
       id: 4,
-      title: 'Portfolio Website',
-      description: 'Sitio web de portafolio personal desarrollado con Angular. Presenta un diseño moderno, responsive y accesible.',
-      image: 'assets/images/project-placeholder-4.jpg',
-      technologies: ['Angular', 'SCSS', 'TypeScript', 'Animation'],
-      category: 'Frontend',
-      demoUrl: 'https://demo.example.com',
-      sourceUrl: 'https://github.com/username/repo'
+      title: 'Sistema Monitoreo IoT (Cultivo Setas)',
+      description: '🔹 Plataforma de monitoreo en tiempo real con Angular, .NET y Azure.\n🔹 Integración con sensores IoT (ESP32, Raspberry Pi).\n🔹 Comunicación MQTT con Python.',
+      image: 'assets/images/projects/project2.jpg',
+      technologies: ['Angular', '.NET', 'Python', 'Azure', 'IoT', 'MQTT'],
+      category: 'Full Stack',
+      demoUrl: '#',
+      sourceUrl: '#'
     },
     {
       id: 5,
-      title: 'RESTful API Service',
-      description: 'API RESTful desarrollada con .NET Core para gestión de recursos con autenticación JWT, documentación Swagger y persistencia de datos.',
-      image: 'assets/images/project-placeholder-5.jpg',
-      technologies: ['.NET Core', 'C#', 'REST API', 'Swagger', 'JWT'],
-      category: 'Backend',
-      demoUrl: 'https://demo.example.com',
-      sourceUrl: 'https://github.com/username/repo'
-    },
-    {
-      id: 6,
-      title: 'Social Media Application',
-      description: 'Aplicación de red social con perfiles de usuario, publicaciones, comentarios y mensajería en tiempo real.',
-      image: 'assets/images/project-placeholder-6.jpg',
-      technologies: ['Angular', '.NET Core', 'SignalR', 'Entity Framework', 'SQL Server'],
-      category: 'Full Stack',
-      demoUrl: 'https://demo.example.com',
-      sourceUrl: 'https://github.com/username/repo'
+      title: 'Portfolio Personal',
+      description: 'Mi sitio web de portafolio personal desarrollado con Angular 17, TypeScript y Tailwind CSS. Presenta un diseño moderno, responsive y funcional.',
+      image: 'assets/images/projects/project1.jpg',
+      technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'SCSS'],
+      category: 'Frontend',
+      demoUrl: '/',
+      sourceUrl: 'https://github.com/Danidiaz0799/front-portfolio'
     }
   ];
 
   /**
    * Categories for filtering projects
    */
-  categories = ['All', 'Frontend', 'Backend', 'Full Stack'];
+  categories = ['All', 'Full Stack', 'Backend', 'Frontend'];
 
   /**
    * Currently selected category for filtering
    */
   selectedCategory = 'All';
+
+  /**
+   * Formats project description, converting newlines to <br> tags
+   * @param description Project description text
+   * @returns Formatted HTML
+   */
+  formatDescription(description: string): SafeHtml {
+    const formattedText = description.replace(/\n/g, '<br>');
+    return this.sanitizer.bypassSecurityTrustHtml(formattedText);
+  }
 
   /**
    * Filters projects based on selected category

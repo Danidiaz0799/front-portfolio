@@ -1,56 +1,75 @@
-<section class="projects-header">
-  <div class="container">
-    <div class="section-header">
-      <h1>Mis Proyectos</h1>
-      <p>Explora mi trabajo y los proyectos en los que he contribuido</p>
+<!-- Hero Section -->
+<section class="relative py-16 md:py-20 overflow-hidden bg-background">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-0 right-0 w-1/3 h-2/3 bg-primary/5 rounded-full blur-3xl opacity-40"></div>
+    <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-secondary/5 rounded-full blur-3xl opacity-40"></div>
+  </div>
+  <div class="container relative z-10 mx-auto px-4 xl:max-w-7xl">
+    <div class="max-w-3xl mx-auto text-center space-y-4 animate-fade-in">
+      <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">Portafolio</span>
+      <h1 class="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-text">Mis Proyectos</h1>
+      <p class="text-lg text-text-light leading-relaxed">Una selección de proyectos que demuestran mi experiencia en desarrollo Full Stack, con énfasis en Angular, .NET, Python y SQL.</p>
     </div>
   </div>
 </section>
 
-<section class="projects-filter">
-  <div class="container">
-    <div class="filter-container">
-      <div class="filter-categories">
-        @for (category of categories; track category) {
-          <button 
-            class="filter-btn" 
-            [class.active]="selectedCategory === category"
-            (click)="setCategory(category)">
-            {{category}}
-          </button>
-        }
-      </div>
+<!-- Filter & Grid Section -->
+<section class="py-16 md:py-20 bg-background-alt">
+  <div class="container mx-auto px-4 xl:max-w-7xl">
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in" style="animation-delay: 0.2s;">
+      @for (category of categories; track category) {
+        <button type="button" 
+          class="px-4 py-2 rounded-full text-sm font-medium border transition-colors duration-300"
+          [ngClass]="{
+            'bg-primary text-white border-primary shadow-md': selectedCategory === category,
+            'bg-background text-text-light border-border hover:bg-primary/10 hover:border-primary/30 hover:text-primary': selectedCategory !== category
+          }"
+          (click)="setCategory(category)">
+          {{ category === 'All' ? 'Todos' : category }}
+        </button>
+      }
     </div>
-  </div>
-</section>
-
-<section class="projects-grid">
-  <div class="container">
-    <div class="projects-container">
-      @for (project of filteredProjects; track project.id) {
-        <div class="project-card">
-          <div class="project-image">
-            <!-- Usamos un placeholder hasta que tengamos imágenes reales -->
-            <div class="project-image-placeholder" [attr.data-project]="project.id"></div>
+    
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      @for (project of filteredProjects; track project.id; let i = $index) {
+        <div class="card group flex flex-col bg-background border border-border/50 rounded-lg overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40 hover:-translate-y-1 animate-fade-in" 
+             [style.animation-delay]="(i * 0.05 + 0.3) + 's'">
+          <div class="aspect-video relative overflow-hidden">
+            <img 
+              [src]="project.image" 
+              [alt]="'Imagen del proyecto ' + project.title" 
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onerror="this.src='assets/images/projects/default-project.png'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div> 
+            <div class="absolute top-3 right-3 px-2 py-0.5 bg-primary/80 text-white rounded-full text-xs font-medium backdrop-blur-sm">
+              {{project.category}}
+            </div>
           </div>
-          <div class="project-content">
-            <h3 class="project-title">{{project.title}}</h3>
-            <div class="project-category">{{project.category}}</div>
-            <p class="project-description">{{project.description}}</p>
-            
-            <div class="project-technologies">
+          <div class="p-5 flex flex-col flex-grow space-y-4">
+             <h3 class="text-lg font-semibold text-text flex-grow">{{project.title}}</h3>
+             <div class="text-sm text-text-light/90 leading-relaxed line-clamp-4" [innerHTML]="formatDescription(project.description)">
+               </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
               @for (tech of project.technologies; track tech) {
-                <span class="tech-tag">{{tech}}</span>
+                 <span class="px-2.5 py-0.5 bg-primary/10 text-primary/90 rounded-full text-xs font-medium border border-primary/20">{{tech}}</span>
               }
             </div>
-            
-            <div class="project-links">
-              <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
-                Ver Demo
-              </a>
-              <a [href]="project.sourceUrl" target="_blank" rel="noopener noreferrer" class="project-link source-link">
-                Ver Código
-              </a>
+            <div class="flex items-center gap-4 pt-3 mt-auto border-t border-border/50">
+              @if (project.demoUrl && project.demoUrl !== '#') {
+                <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-primary hover:text-primary-dark transition-colors duration-300">
+                  Ver Demo
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              }
+               @if (project.sourceUrl && project.sourceUrl !== '#') {
+                <a [href]="project.sourceUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-text-light hover:text-primary transition-colors duration-300 {{ (project.demoUrl && project.demoUrl !== '#') ? 'ml-auto' : '' }}">
+                   <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                  Código Fuente
+                </a>
+              }
             </div>
           </div>
         </div>
@@ -59,12 +78,14 @@
   </div>
 </section>
 
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-box">
-      <h2>¿Tienes un proyecto en mente?</h2>
-      <p>Estoy disponible para nuevas oportunidades y colaboraciones</p>
-      <a routerLink="/contact" class="primary-btn">Contáctame</a>
-    </div>
-  </div>
-</section>
+<!-- Add animation style if not global -->
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0; /* Start hidden */
+  }
+</style>

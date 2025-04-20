@@ -1,63 +1,23 @@
-<footer class="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <a routerLink="/">
-              <span class="logo-text">Mi Portafolio</span>
-            </a>
-          </div>
-          <p class="footer-description">
-            Desarrollador Full Stack especializado en Angular y .NET, 
-            con experiencia en el desarrollo de aplicaciones web modernas 
-            y soluciones empresariales.
-          </p>
-          <div class="footer-social">
-            @for (social of socialLinks; track social.url) {
-              <a [href]="social.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="social.label">
-                <div class="social-icon" [attr.data-icon]="social.icon"></div>
-              </a>
-            }
-          </div>
-        </div>
-        
-        <div class="footer-links">
-          <h3 class="footer-title">Enlaces rápidos</h3>
-          <ul class="link-list">
-            @for (link of footerLinks; track link.path) {
-              <li>
-                <a [routerLink]="link.path">{{link.label}}</a>
-              </li>
-            }
-          </ul>
-        </div>
-        
-        <div class="footer-contact">
-          <h3 class="footer-title">Contacto</h3>
-          <ul class="contact-list">
-            <li>
-              <span class="contact-icon" data-icon="email"></span>
-              <a href="mailto:ejemplo&#64;midominio.com">ejemplo&#64;midominio.com</a>
-            </li>
-            <li>
-              <span class="contact-icon" data-icon="phone"></span>
-              <a href="tel:+34123456789">+34 123 456 789</a>
-            </li>
-            <li>
-              <span class="contact-icon" data-icon="location"></span>
-              <span>Madrid, España</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="copyright">
-        <p>&copy; {{currentYear}} Mi Portafolio. Todos los derechos reservados</p>
+<footer class="bg-background-dark text-text-lighter py-8 border-t border-border-dark/50">
+  <div class="container mx-auto px-4 xl:max-w-7xl">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Copyright -->
+      <p class="text-sm text-center md:text-left">
+        © {{currentYear}} Steven Diaz. Todos los derechos reservados.
+      </p>
+      
+      <!-- Social Links -->
+      <div class="flex items-center gap-4">
+        @for (social of socialLinks; track social.label) {
+          <a [href]="social.url" target="_blank" rel="noopener noreferrer" 
+             [attr.aria-label]="social.label" 
+             class="text-text-lighter hover:text-primary-light transition-colors duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <title>{{ social.label }}</title> 
+              <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="social.icon"></path>
+            </svg>
+          </a>
+        }
       </div>
     </div>
   </div>

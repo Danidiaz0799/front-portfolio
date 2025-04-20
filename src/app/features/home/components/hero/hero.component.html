@@ -1,0 +1,108 @@
+<section class="relative py-16 md:py-24 lg:py-28 overflow-hidden bg-gradient-to-br from-background to-background-alt min-h-[80vh] flex items-center">
+  <!-- Background elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-0 right-0 w-1/4 h-1/2 bg-primary/5 rounded-full blur-3xl opacity-20"></div>
+    <div class="absolute bottom-0 left-0 w-1/3 h-2/3 bg-secondary/5 rounded-full blur-3xl opacity-20"></div>
+  </div>
+  
+  <div class="container relative z-10 mx-auto px-4 xl:max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Hero Content -->
+      <div class="text-center lg:text-left">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
+            <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+            <span>Disponible para nuevos proyectos</span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+            <span class="block text-text/80 font-medium">Hola, soy</span>
+            <span class="block text-primary">Steven Diaz</span>
+          </h1>
+          
+          <p class="text-xl md:text-2xl text-text-light font-medium">
+            Desarrollador Full Stack | Angular & .NET | Python & SQL
+          </p>
+          
+          <p class="text-lg text-text-light/90 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Transformo ideas en aplicaciones web robustas y escalables. Con +5 años de experiencia, me especializo en crear soluciones eficientes utilizando <strong class="text-primary font-semibold">Angular, .NET, TypeScript y Python</strong>, aplicando arquitectura limpia y metodologías ágiles.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start pt-4">
+            <a routerLink="/contact" class="inline-flex items-center justify-center px-6 py-3 font-medium text-white bg-primary rounded-md shadow-lg shadow-primary/30 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-0.5">
+              Contáctame
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            
+            <a routerLink="/projects" class="inline-flex items-center justify-center px-6 py-3 font-medium text-primary border border-primary/50 rounded-md hover:bg-primary/10 hover:text-primary-dark transition-colors duration-300">
+              Ver Proyectos
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+          
+          <!-- Tech Skills -->
+          <div class="pt-8">
+            <h3 class="text-text/80 text-base font-semibold mb-4 flex items-center justify-center lg:justify-start tracking-wide uppercase">
+              Tecnologías Principales
+            </h3>
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <span class="px-3 py-1 bg-primary/10 text-primary/90 rounded-full text-sm font-medium border border-primary/20">
+                Angular
+              </span>
+              <span class="px-3 py-1 bg-primary/10 text-primary/90 rounded-full text-sm font-medium border border-primary/20">
+                .NET
+              </span>
+              <span class="px-3 py-1 bg-primary/10 text-primary/90 rounded-full text-sm font-medium border border-primary/20">
+                TypeScript
+              </span>
+              <span class="px-3 py-1 bg-primary/10 text-primary/90 rounded-full text-sm font-medium border border-primary/20">
+                Python
+              </span>
+              <!-- Puedes añadir C# aquí si quieres, o mantenerlo más enfocado -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hero Image -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[30rem] xl:h-[30rem]">
+          <!-- Glow effect -->
+          <div class="absolute inset-[-8%] bg-gradient-to-r from-primary/80 to-secondary/80 rounded-full blur-3xl opacity-15 animate-pulse-slow"></div>
+          
+          <!-- Profile image container -->
+          <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-white/5 shadow-xl group">
+            <img 
+              src="assets/images/perfil.jpg" 
+              alt="Steven Diaz - Desarrollador Full Stack Angular .NET" 
+              class="w-full h-full object-cover"
+              onerror="this.src='https://via.placeholder.com/400x400?text=SD'"
+            >
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-30 group-hover:opacity-10 transition-opacity duration-300"></div>
+          </div>
+          
+          <!-- Status badge -->
+          <div class="absolute bottom-5 right-5 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg border border-border/30">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 bg-green-500 rounded-full ring-2 ring-green-500/30"></div>
+              <span class="text-xs font-medium text-text">Disponible</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes pulse-slow {
+    50% { opacity: 0.1; }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style> 
